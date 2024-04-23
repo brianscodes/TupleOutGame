@@ -58,6 +58,8 @@ for index in range(5):
                     break
             else:
                 break
+    if game_end == True:
+        break
 
     #Displaying score for P1
     p1 += p1d1 + p1d2 + p1d3
@@ -113,16 +115,18 @@ for index in range(5):
                     break
             else:
                 break
+    if game_end == True:
+        break
 
     #Displaying score for P2
     p2 += p2d1 + p2d2 + p2d3
     print(f"Player 2's score is {p2} \n")
 
-if game_end == False:
-    if p1 > p1:
-        print(f"Player 1 wins! Your score is {p1}")
-    else:
-        print(f"Player 2 wins! Your score is {p2}")
+
+if p1 > p2:
+    print(f"Player 1 wins! Your score is {p1}")
+else:
+    print(f"Player 2 wins! Your score is {p2}")
 
     
 
