@@ -17,5 +17,6 @@ while p1 < 50:
     if p1d1 == p1d2 and p1d1 == p1d3:
         print("You have Tupled Out! You lose. \n")
         break
+    
 
-    #if p1d1 == p1d2 or p1d1 == p1d3 or p1d2 == p1d3:
+
