@@ -7,11 +7,21 @@ p1 = 0
 p2 = 0
 dice_face = (1, 2, 3, 4, 5, 6)
 game_end = False
-index = 1
+count = 1
+
+r1 = 0
+r2 = 0
+betAmount1 = 0
+betAmount2 = 0
 
 
-for i in range (1, 3, +1):
-    print(f"Round {index}: \n")
+for index in range(3):
+    print(f"Round {count}: \n")
+
+    #implementing bets per round
+    print("Lets bet on who you think will win this round!")
+    placeHolder1 = print(f"{p1Name}, how much money do you want to put in your bet? \n$")
+    placeHolder2 = print(f"{p2Name}, how much money do you want to put in your bet? \n$")
 
     #Code for game 
     for index in range(5):
@@ -70,10 +80,10 @@ for i in range (1, 3, +1):
 
         #Displaying score for P1
         p1 += p1d1 + p1d2 + p1d3
-        print(f"Player 1's score is {p1} \n")
+        print(f"{p1Name}'s score is {p1} \n")
         
         #Player 2
-        start = input("Player 2, press 'ENTER' to start your turn:")
+        start = input(f"{p2Name}, press 'ENTER' to start your turn:")
 
         #Generates dice roll for player 2
         p2d1 = random.choice(dice_face)
@@ -127,20 +137,28 @@ for i in range (1, 3, +1):
 
         #Displaying score for P2
         p2 += p2d1 + p2d2 + p2d3
-        print(f"Player 2's score is {p2} \n")
+        print(f"{p2Name}'s score is {p2} \n")
 
     if p1 > p2:
-        print(f"Player 1 wins this round! \n Player 1's score is {p1} \n Player 2's score is {p2} \n")
+        print(f"{p1Name} wins this round! \n {p1Name}'s score is {p1} \n {p2Name}'s score is {p2} \n")
+        r1 += 1
+        betAmount1 += placeHolder1
+        betAmount2 -= placeHolder2
+        print(f"{p1Name}, your current balance is {betAmount1} \n {p2Name}, your current balance is {betAmount2}")
+
     else:
-        print(f"Player 2 wins this round! \n Player 1's score is {p1} \n Player 2's score is {p2} \n")
-    index += 1
+        print(f"{p2Name} wins this round! \n {p1Name}'s score is {p1} \n {p2Name}'s score is {p2} \n")
+        r2 += 1
+        betAmount2 += placeHolder2
+        betAmount1 -= placeHolder1
+        print(f"{p1Name}, your current balance is {betAmount1} \n {p2Name}, your current balance is {betAmount2}")
 
+    count += 1
 
-if p1 > p2:
-    print(f"Player 1 wins! Your score is {p1}")
+if r1 > r2:
+    print(f"{p1Name} has won the game! \n")
 else:
-    print(f"Player 2 wins! Your score is {p2}")
-
+    print(f"{p2Name} has won the game! \n")
     
 
 
